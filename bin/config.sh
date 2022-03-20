@@ -72,7 +72,12 @@ NETWORK_TIMEOUT=30
 #############################################################################
 
 # the real-time clock to use (0, 1 or 2)
+# Modified =1 for Kindle Touch
 RTC=1
 
 # the temporary file to download the screensaver image to
 TMPFILE=/tmp/tmp.onlinescreensaver.png
+
+# webhook address, used for example in Home Assistant to retrieve battery %
+# i.e. WEBHOOKADR="<HomeAssistantURL>/api/webhook/kindle-battery-update-hook"
+WEBHOOKADR=""
