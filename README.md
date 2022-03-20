@@ -1,7 +1,19 @@
+Info
+----
+Original README below. I've just made few modifications to adapt what found here:  
+https://www.mobileread.com/forums/showthread.php?t=236104  
+to have it running in my old Kindle Touch.
+In particular:
+- Changed RTC=**1** in utils.sh
+- Changed SCREENSAVERFILE=$SCREENSAVERFOLDER/**bg_xsmall_ss00**.png
+- Included some changes proposed in the thread
+- Added webhook to have the battery status in Home Assistant, described below
+
 Online Screensaver
------------------- v0.3
-                   by peterson, via mobileread.com
-                   thanks to the great folks in the Kindle developer corner
+------------------ 
+v0.3
+by peterson, via mobileread.com
+thanks to the great folks in the Kindle developer corner
 
 The Online Screensaver automatically fetches a new screensaver image from a
 user-specified URL at a user-specified interval. If a screensaver is shown
@@ -80,6 +92,17 @@ Edit onlinescreensaver/bin/config.sh, all available options are described
 here. Note that you MUST use an editor that supports Unix line endings. On
 Windows, use e.g. the free notepad++ application.
 
+**EDIT**: Variable WEBHOOKADR sets the possibility to send battery status as json via curl.
+In Home Assistant set the following in configuration.yaml:
+```
+template:
+  - trigger:
+    - platform: webhook
+      webhook_id: kindle-battery-update-hook # Or whatever you prefer, as defined in config.sh
+    sensor:
+    - name: "Kindle Battery"
+      state: '{{ trigger.json[''kindle_battery''] }}'
+```
 
 Use
 ---
