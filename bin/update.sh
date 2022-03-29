@@ -62,7 +62,7 @@ if [ 1 -eq $CONNECTED ]; then
                 lipc-get-prop com.lab126.powerd status | grep "Screen Saver" && (
                      logger "Updating image on screen"
                      eips -f -g $SCREENSAVERFILE
-                     batt=`powerd_test -s | awk -F: '/Battery Level/ {print substr($2,2,2)}'`
+                     batt=`powerd_test -s | awk -F: '/Battery Level: / {print $2}' | awk -F' |%' '{print $2}'`
 # Create json for POST
 generate_post_data()
 {
