@@ -7,7 +7,10 @@ In particular:
 - Changed RTC=**1** in utils.sh
 - Changed SCREENSAVERFILE=$SCREENSAVERFOLDER/**bg_xsmall_ss00**.png
 - Included some changes proposed in the thread
-- Added webhook to have the battery status in Home Assistant, described below
+- Added webhook to have the battery status in Home Assistant, described below  
+
+I'm using this hack in combination with: https://github.com/sibbl/hass-lovelace-kindle-screensaver
+
 
 Online Screensaver
 ------------------ 
