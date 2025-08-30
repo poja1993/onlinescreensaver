@@ -55,7 +55,7 @@ while [ 0 -eq $CONNECTED ]; do
 done
 
 if [ 1 -eq $CONNECTED ]; then
-	if wget -q $IMAGE_URI -O $TMPFILE; then
+	if curl -kl $IMAGE_URI -o $TMPFILE; then
 		mv $TMPFILE $SCREENSAVERFILE
 		logger "Screen saver image file updated"
                 # refresh screen
